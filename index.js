@@ -2728,7 +2728,7 @@ function GutterHandler(mouseHandler) {
     }
 
     function moveTooltip(e) {
-        tooltip.setPosition(e.offsetX, e.offsetY);
+        tooltip.setPosition(e.layerX, e.layerY);
     }
 
     mouseHandler.editor.setDefaultHandler("guttermousemove", function(e) {
@@ -2808,9 +2808,8 @@ var MouseEvent = exports.MouseEvent = function(domEvent, editor) {
     this.x = this.clientX = domEvent.clientX;
     this.y = this.clientY = domEvent.clientY;
 
-
-    this.offsetX = domEvent.offsetX;
-    this.offsetY = domEvent.offsetY;
+    this.layerX = domEvent.layerX;
+    this.layerY = domEvent.layerY;
 
     this.$pos = null;
     this.$inSelection = null;
